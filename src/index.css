@@ -1,0 +1,1032 @@
+@import url('https://fonts.googleapis.com/css2?family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Montserrat+Alternates:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&family=Poppins:ital,wght@0,100;0,200;0,300;0,400;0,500;0,600;0,700;0,800;0,900;1,100;1,200;1,300;1,400;1,500;1,600;1,700;1,800;1,900&display=swap');
+
+
+html{
+    scroll-behavior: smooth;
+}
+::-webkit-scrollbar{
+    width: 5px;
+}
+::-webkit-scrollbar-track{
+    background-color: rgba(0, 0, 0, 0.719);
+}
+::-webkit-scrollbar-thumb{
+    background-color: rgb(119, 136, 153);
+}
+.page{
+    background-image: url("./assets/background.svg");
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    height: auto;
+    color:white;
+    padding-left: 20px;
+    font-family: "Poppins", sans-serif;
+}
+.header{
+    justify-content: space-between;
+    padding: 20px;
+    color:#ededed;
+    gap:150px;
+    position: relative;
+}
+.header:hover{
+    cursor: pointer;
+}
+.header .name {
+    padding: 10px;
+    font-weight: 700;
+    font-size: 35px;
+    background-image: linear-gradient(43deg, #4158D0 0%, aqua 46%, #ffCC70 100%);
+    background-clip: text;
+    color: transparent;
+    animation: floatText 3s ease-in-out infinite alternate;
+    transform: perspective(1000px) rotateY(20deg);
+}
+@keyframes floatText {
+    from {
+        transform: translateY(0);
+    }
+    to {
+        transform: translateY(-10px);
+    }
+}
+.header .navigate{
+    padding: 10px;
+    font-weight: 500;
+    font-size: 18px;
+}
+.header .navigate .navigate-word{
+    text-decoration: none;
+    color:#ededed;
+}
+.header .navigate .navigate-word:hover{
+    color:aqua;
+}
+.header .navigate span{
+    padding-left: 10px;
+}
+.header .navigate-symbol {
+    display: none;
+}
+
+.body{
+    padding:20px;
+    padding-top: 30px;
+}
+.topic{
+    color:aqua;
+    font-family: "Montserrat Alternates", sans-serif;
+    font-weight: 800;
+    font-size: 40px;
+    margin-top: 10px;
+}
+.body .info{
+    font-size: 14px;
+}
+.body .info .actions{
+    padding-top: 20px;
+}
+.body .info .actions a{
+    margin-left: 70px;
+}
+.body .info .actions button .icon{
+    margin-left: 12px;
+    font-size: 13px;
+}  
+.body .info .actions button{
+    background-color:rgba(0, 255, 255, 0.744);
+    color:black;
+    border: 1px solid transparent;
+    border-radius: 12px;
+    padding: 8px;
+    box-shadow: 0 8px 15px rgba(0, 0, 0, 0.1);
+    transform: perspective(1000px) rotateX(10deg);
+    transition: all 0.3s ease-in-out;
+}
+.body .info button:hover{
+    background-color:transparent;
+    border: 1px solid aqua;
+    color: aqua;
+    transform: perspective(1000px) rotateX(0deg);
+}
+.body .img{
+    height: 350px;
+    width: 350px;
+    margin-left: 60px;
+}
+.body .img img{
+    height: 100%;
+    width: 100%;
+}
+.education{
+    margin-top: 50px;
+}
+.education .para{
+    font-size: 13px;;
+}
+.education .uni{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.education .uni .uniname{
+    font-family: "Montserrat Alternates", sans-serif;
+    padding: 10px;
+    border: 1px dotted lightgreen;
+    border-radius: 15px;
+    margin-top: 12px;
+    animation: letterlight 3s ease-in-out infinite alternate;
+}
+@keyframes letterlight{
+    from{
+        color:#03ff42;
+    }to{
+        color:#1eac6c;
+    }
+}
+.education img{
+    height: 200px;
+    width: 200px;
+    border-radius: 50%;
+    margin: 20px;
+}
+.education .uni .span{
+    flex-direction: column;
+    margin:10px;
+}
+.education .uni p{
+    margin-top: 10px;
+    font-size: 13px;
+}
+.education ul{
+    margin: 10px;
+    width: 100%;
+}
+.education ul .list-items{
+    margin-top: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding-left: 60px;     
+}
+.education ul .list-items button{
+    text-transform: capitalize;
+    color: aqua;
+    border: 1px solid aqua;
+    border-radius: 12px;
+    font-size: 12px;
+    position: relative;
+    z-index: 1;
+    transition: 0.5s;
+}
+.education ul .list-items button:hover{
+    color: black;
+}
+.education ul .list-items button::before{
+    content:"";
+    width: 0%;
+    height: 100%;
+    background-color: aqua;
+    border-radius: 12px;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+    transition: 0.5s;
+}
+.education ul .list-items button:hover::before{
+    width: 100%;
+}
+.education .uni .clickMeforMore{
+    margin-left: 20px;
+}
+#Alresults{
+    background-color: rgba(0, 0, 0, 0.091);
+}
+#Alresults .Dtitle{
+    /* background-color: rgba(0, 0, 0,0.7); */
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* color:white; */
+    color: black;
+    font-weight: 600;
+    font-size: 30px;
+    text-transform: uppercase;
+    font-family: "Montserrat Alternates", sans-serif;
+}
+#Alresults .Dbody{
+    /* background-color: rgba(0, 0, 0,0.7); */
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 0px;
+    padding-top: 0px;
+}
+#Alresults .image{
+    width: 300px;
+    height: 300px;
+    margin-right: 20px;
+}
+#Alresults .image img{
+    width: 100%;
+    height: 100%;
+}
+#Alresults .details{
+    width: 200px;
+    height: 250px;
+}
+#Alresults .Dbody h5{
+    margin-top: 10px;
+    font-size: 18px;
+    /* color: rgba(255, 255, 255, 0.699); */
+    color: black;
+    font-weight: 600;
+}
+#Alresults .Dbody ul li.AlPopup{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    /* color:white; */
+    color: black;
+    padding: 2px;
+    margin: 0px 20px;
+}
+#Alresults .Dbody ul li.OlPopup{
+    margin: 0px 70px;
+}
+#Alresults .Dbody ul li.AlPopup:hover{
+    color:aqua;
+    background-color: rgba(0, 0, 0, 0.9);
+    cursor: pointer;
+    border-radius: 10px;
+    scale:calc(1.09);
+    transition: all 0.3s ease;
+    width: 90%;
+}
+#Alresults .Dbody ul li.AlPopup.last{
+    margin-bottom:25px;
+}
+#Alresults .Dbody ul li.AlPopupZ{
+    /* color: rgba(255, 255, 255, 0.63); */
+    color: black;
+}
+#Alresults .Dbody ul li.AlPopupZ .item1{
+    padding-left: 50px;
+    /* color: rgba(255, 255, 255, 0.699); */
+    color: black;
+}
+#Alresults .Dbody ul li.AlPopupZ .item2{
+    padding-left: 22px;
+    /* color: rgba(255, 255, 255, 0.699); */
+    color: black;
+}
+#Alresults .Dactions{
+    /* background-color: rgba(0, 0, 0,0.7); */
+    background-color: white;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 100%;
+}
+#Alresults .Dactions button{
+    position:relative;
+    width: 100%;
+    height: 100%;
+    border:2px solid #00abf0;
+    border-radius: 13px;
+    font-weight: 600;
+    z-index: 1;
+    color: rgb(2, 2, 110);
+    background-color: rgba(0, 255, 255, 0.47);
+}
+#Alresults .Dactions button::before{
+    content:'';
+    position:absolute;
+    top:0;
+    left:0;
+    width: 0%;
+    height: 100%;
+    background-color: #3fabd5;
+    z-index:-1;
+    transition: 2s;
+    border-radius: 12px;
+    opacity:0;
+}
+#Alresults .Dactions button:hover::before{
+    width: 100%;
+    opacity:1;
+}
+.skills{
+    margin-top: 50px;
+    color:black;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 20px;
+    height: auto;
+}
+.skills .icon{
+    margin-right: 10px;
+    font-size: 18px;
+}
+.skills .cards .div{
+    padding:15px;
+    margin:10px;
+    border-radius: 12px;
+    border: 1px solid aqua;
+    padding: 30px;
+    height:450px;
+}
+.skills .cards .div:hover{
+    cursor: pointer;
+}
+.skills .cards .div:hover{
+    background-color: rgba(255, 255, 255, 0.11);
+    scale:calc(1.09);
+    transition: all 0.3s ease-in-out;
+}
+.skills .cards .div h4{
+    margin-bottom: 25px;
+}
+.skills .cards .div:hover h4{
+    color:#302d2d;
+}
+.skills .cards .div .skill-set{
+    justify-content: space-between;
+    margin-bottom: 3px;
+}
+.skills .cards .div .skill-set p{
+    font-size: 12px;
+}
+.skill-bar-back{
+    height: 5px;
+    width: 100px;
+    background-color: rgba(0, 0, 0, 0.575);
+    border-radius: 10px;
+    position: relative;
+}
+.skill-bar-front-80 {
+    height: 5px;
+    width: 80%;
+    background: linear-gradient(45deg, #65cb11, #b8cb11, #fc9025);
+    background-size: 300% 300%;
+    border-radius: 10px;
+    position: absolute;
+    top: 2px;
+    left: 0;
+    animation: skillSection 5s ease-in-out infinite;
+}
+.skill-bar-front-60 {
+    width: 60%;
+}
+.skill-bar-front-90 {
+    width: 90%;
+}
+@keyframes skillSection {
+    0% {
+        background-position: 0% 50%;
+    }
+    50% {
+        background-position: 100% 50%;
+    }
+    100% {
+        background-position: 0% 50%;
+    }
+}
+.projects{
+    margin-top: 50px;
+}
+.projects p{
+    font-size: 13px;
+}
+.projects .item{
+    height: 200px;
+    width: 200px;
+}
+.projects .slick-slider{
+    background-color: rgba(255, 255, 255, 0.055);
+    border-radius: 30px;
+}
+.projects .slick-slider .sliderSet{
+    gap: 50px;
+    display: flex;
+    align-items: center;
+}
+.projects .slick-slider .sliderSet img{
+    height: 400px;
+    width: 40%;
+    border-top-left-radius: 30px;
+    border-bottom-left-radius: 30px;
+}
+.projects .slick-slider .sliderSet .description{
+    padding-left: 20px;
+    max-width: 50%;
+}
+.projects .slick-slider .sliderSet .description h5{
+    margin-bottom: 20px;
+    display: flex;
+    justify-content: center;
+}
+.projects .slick-slider .sliderSet .description span{
+    display: block;
+    overflow: hidden; 
+    text-overflow: ellipsis; 
+    white-space: normal; 
+    word-wrap: break-word;
+    max-height: 100%; 
+}
+.slick-arrow{
+    background-color: rgba(0, 255, 255, 0.963);
+    border-radius: 50%;
+    height: 50px;
+    width: 50px;
+    z-index: 100;
+}
+.slick-arrow:hover{
+    scale:calc(1.5);
+    z-index: 100;
+    background-color: rgba(0, 255, 255, 0.963);
+}
+.slick-arrow::before{
+    color:black;
+    font-size: 45px;
+    position: relative;
+    top:4px;
+}
+.slick-dots li button::before {
+    color: aqua;
+    opacity: 0.4;
+}
+.slick-dots li.slick-active button::before {
+    color: aqua;
+    opacity: 1;
+}
+.slick-dots li button::before {
+    font-size: 10px;
+}
+.projects .OpentheProject{
+    color:rgb(0, 255, 255);
+    background-color: #007bffc4;
+    margin-top: 7px;
+    border-radius: 12px;
+    border: 1px solid transparent;
+}
+.projects .OpentheProject:hover{
+    border-color: rgb(0, 255, 255);
+}
+.experience,.activities,.contact{
+    margin-top: 60px;
+}
+.activities{
+    padding:20px;
+    height: 450px;
+}
+.activities .card{
+    height: 360px;
+    background: rgba(255, 255, 255, 0.4);
+    border-radius: 16px;
+    backdrop-filter: blur(10px);
+    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    border: 1px solid rgba(255, 255, 255, 0.18);
+    padding: 20px;
+}
+.activities .certificateSection{
+    padding: 20px;
+    padding-left: 50px;
+    gap:50px;
+    padding-bottom: 0px;
+}
+.activities .certificateSection .cert1{
+    height: 250px;
+    width: 300px;
+}
+
+.activities .certificateSection .cert1 button{
+    text-transform: capitalize;
+    color: black;
+    border: 1px solid black;
+    border-radius: 12px;
+    font-size: 12px;
+    position: relative;
+    z-index: 1;
+    transition: 0.5s;
+}
+.activities .certificateSection .cert1 button::before{
+    content:"";
+    width: 0%;
+    height: 100%;
+    background-color: aqua;
+    border-radius: 12px;
+    position: absolute;
+    top:0;
+    left:0;
+    z-index: -1;
+    transition: 0.5s;
+}
+.activities .certificateSection .cert1 button:hover::before{
+    width: 100%;
+}
+.activities .certificateSection .cert1 img{
+    height: 100%;
+    width: 100%;
+}
+.activities .certificateSection.cert-info .cert1{
+    height: 50px;
+    width: 300px;
+    padding: 0px;
+    margin: 0px;
+    padding-left: 20px;
+}
+.activities .actAndCet{
+    flex-direction: column;
+    justify-content: center;
+    gap:20px;
+    font-weight: 500;
+    cursor: pointer;
+}
+.activities .actAndCet button,.goUp{
+    color: white;
+    background: linear-gradient(45deg, #6a11cb, #2575fc);
+    width: 100%;
+    font-size: 16px;
+    padding: 12px 20px;
+    border-radius: 20px;
+    transition: all 0.3s ease;
+    position: relative;
+    overflow: hidden;
+}
+.activities .actAndCet button:hover,.goUp{
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.3);
+    background: linear-gradient(45deg, #2575fc, #6a11cb);
+}
+.activities .actAndCet button:active,.goUp{
+    transform: scale(0.95);
+}
+.activities .actAndCet button::before{
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 300%;
+    height: 300%;
+    background: rgba(255, 255, 255, 0.2);
+    transform: translate(-50%, -50%) scale(0);
+    transition: transform 0.4s ease;
+    border-radius: 50%;
+}
+.activities ul.list {
+    cursor: pointer;
+    padding: 20px;
+    font-size: 17px;
+}
+.activities ul.list li ul{
+    margin-top: 10px;
+    padding-left: 20px;
+}
+.activities ul.list li ul li {
+    margin-bottom: 5px;
+    font-size: 15px;
+    color: #313030;
+    position: relative;
+    padding-left: 40px;
+}
+.activities ul.list li:hover {
+    color: black;
+    font-weight: 500;
+    transition: color 0.3s ease;
+}
+#certificates .Dtitle{
+    padding-top: 20px;
+    flex-direction: column;
+    font-family: "Montserrat Alternates", sans-serif;
+}
+#certificates .Dtitle h2{
+    font-weight: 600;
+}
+#certificates .Dtitle h4{
+    font-size: 20px;
+}
+#certificates .Dactions{
+    justify-content: space-between;
+    margin: 0px 30px;
+}
+#certificates a button{
+    color:#00ffea;
+    background-color: rgba(0, 0, 0, 0.689);
+    border-radius: 20px;
+    padding: 10px
+}
+#certificates a button:hover{
+    color:rgba(0, 0, 0,1);
+    background-color: #00ffea;
+}
+#certificates button{
+    color:#ff7b00;
+    background-color: rgba(0, 0, 0, 0.689);
+    border-radius: 20px;
+}
+#certificates button:hover{
+    color:black;
+    background-color: #ff7b00;
+    border-radius: 20px;
+}
+.certinDialog{
+    height: 450px;
+    width: 600px;
+}
+.contact{
+    margin-top: 120px;
+    margin-bottom: 30px;
+}
+.contact .icon{
+    margin-right: 12px;
+    font-size: 18px;
+}
+.contact .contact-info{
+    margin: 30px 0px;
+    font-size: 19px;
+    color:aqua;
+    font-weight: 500;
+    border: 1px solid white;
+    padding:15px 0px;
+    border-radius: 20px;
+} 
+.contact .contact-info .contact-info-in{
+    gap: 50px;
+} 
+.contact .contact-info .contact-info-in.links{
+    margin-top: 40px;
+} 
+.contact .contact-info a,.contact .contact-info .email{
+    text-decoration: none;
+    color:aqua;
+    padding-bottom: 9px;
+    border-bottom: 2px solid transparent;
+} 
+.contact .contact-info a:hover,.contact .contact-info .email:hover{
+    border-bottom: 2px solid aqua;
+    padding-bottom: 9px;
+    transition: all 1s ease-in-out;
+    cursor: pointer;
+}
+.footer{
+    padding:0px;
+    margin: 0px;
+    margin-top: 20px;
+}
+.footer .navigate span{
+    font-size: 12px;
+}
+.footer .navigate span:hover{
+    color:white;
+}
+.footer .name span{
+    font-size: 15px;
+}
+.footer .name button{
+    margin: 0px;
+}
+.footer .name button .goUp{
+    margin: 0px;
+    border: 1px solid black;
+    border-radius: 100px;
+    color:black;
+    padding: 0px;
+    background: linear-gradient(45deg, #25d8fc, #00ffea);
+}
+.footer .name button .goUp:hover{
+    background: linear-gradient(43deg, #0051ff, #24f999);
+}
+.body .symbols{
+    font-size: 20px;
+    margin-right: 25px;
+}
+.footer .icon{
+    font-size: 40px;
+}
+.footer .icon.icon1{
+    position:relative;
+    font-size:10px ;
+    top:-9px;
+}
+.hidden{
+    opacity: 0;
+    filter: blur(5px);
+    transition: all 1s;
+    transform: translateY(-100%);
+}
+.show{
+    opacity: 1;
+    filter: blur(0);
+    transform: translateY(0);
+}
+
+@media (max-width: 992px) {
+    .container{
+        font-size: 12px;
+    }
+    .header .navigate-symbol {
+        display: block;
+        font-size: 24px;
+        cursor: pointer;
+    }
+    .header .navigate {
+        display: none;
+    }
+    .header.active .navigate {
+        display: block;
+        position: fixed;
+        top: 0;
+        right: 0;
+        background: rgba(0, 0, 0, 0.78);
+        width: 100%;
+        height: 100%;
+        z-index: 1000;
+        padding-top: 60px;
+        text-align: center;
+    }
+    .header.active .navigate .navigate-word {
+        display: block;
+        margin-bottom: 20px;
+        font-size: 24px;
+    }
+    .body {
+        padding: 20px;
+        text-align: center;
+    }
+    .body .info {
+        margin: 0 auto;
+        padding:0;
+    }
+    .topic{
+        font-size: 35px;
+    }
+    .body .info p {
+        font-size: 12px;
+        line-height: 1.5;
+        width: 100%;
+        margin: 0; 
+        padding: 0px;
+    }
+    .body .info .full-screen-para {
+        width: 100%;
+    }
+    .col-md-7 {
+        flex: 0 0 85%;
+        max-width: 80%;
+    }
+    .skills .cards .skill-set{
+        flex-direction: column;
+    }
+    .skills .cards .div{
+        height: auto;   
+    }
+    .skills .cards .div h4{
+        font-size: 17px; 
+    }
+    .skills .cards .div p{
+        font-size: 12px;  
+        margin-top: 5px;
+    }
+    .activities .card{
+        margin-top: 10px;
+        height: auto;
+        width: 480px;
+    }
+    .activities .actAndCet {
+        gap: 10px;
+    }
+    .activities .actAndCet button{
+        font-size: 10px;
+    }
+    .contact{
+        margin-top: 210px;
+    }
+    .contact .contact-info{
+        padding: 8px 11px;
+    }
+    .contact-info-in{
+        font-size: 16px;
+    }
+    .contact-info-in.links{
+        margin-top: 5px;
+        font-size: 13px;
+    }
+    .contact .contact-info .contact-info-in.links{
+        margin-top: 15px;
+    } 
+    .footer{
+        flex-direction: column;
+        gap:0px;
+    }
+    .footer .footerNav{
+        display: flex;
+    }
+    .footer .footerNav span{
+        font-size: 12px;
+    }
+}
+@media (max-width: 766px) {
+    .header {
+        align-items: center;
+    }
+    .header .name {
+        font-size: 23px;
+    }
+    .header .navigate {
+        font-size: 14px;
+    }
+    .body {
+        padding: 10px;
+    }
+    .skills .cards {
+        flex-direction: column;
+        width: 420px;
+    }
+    .projects .slick-slider .sliderSet {
+        flex-direction: column;
+    }
+    .projects .slick-slider .sliderSet img {
+        width: 100%;
+        height: auto;
+        border-radius: 30px 30px 0 0;
+    }
+    .projects .slick-slider .sliderSet .description {
+        padding: 10px;
+        max-width: 100%;
+        font-size: 13px;
+    }
+    .activities .card{
+        margin-top: 10px;
+        height: auto;
+    }
+    .activities .card .cert1 button{
+        font-size: 11px;
+        font-weight: 600;
+        height: 35px;
+        padding: 20px;
+    }
+    .activities .actAndCet {
+        gap: 10px;
+    }
+    .activities ul.list li {
+        font-size: 18px;
+    }
+    .contact{
+        margin-top: 350px;
+    }
+    .contact-info-in.links{
+        flex-direction: column;
+        font-size: 14px;
+    }
+    .contact .contact-info .contact-info-in.links{
+        margin-top: 15px;
+    } 
+    .contact-info-in.links a{
+        margin: 0px;
+    }
+    .footer{
+        flex-direction: column;
+        gap:0px;
+    }
+    .footer .footerNav{
+        display: flex;
+    }
+    .footer .footerNav span{
+        font-size: 12px;
+    }
+}
+@media (max-width: 576px){
+    .skills .cards {
+        flex-direction: column;
+        width: auto;
+    }
+    .footer{
+        flex-direction: column;
+        gap:0px;
+    }
+    .footer .footerNav{
+        display: flex;
+    }
+    .footer .footerNav span{
+        font-size: 12px;
+    }
+}
+@media (max-width: 360px){
+    .topic{
+        font-size: 25px;
+    }
+    .info .actions a button{
+        width: 60%;
+        font-size: 9px;
+        position: relative;
+        right:30px;
+    }
+    .body .row .img{
+        width: 85%;
+        position: relative;
+        right:30px;
+    }
+    .education .para{
+        font-size: 12px;
+    }
+    .education .uni .uniname{
+        font-size: 16px;
+    }
+    .education .uni p{
+        font-size: 12px;
+    }
+    #Alresults .image{
+        opacity: 0;
+        width: 0;
+    }
+    #Alresults .Dbody{
+        height: 290px;
+    }
+    #Alresults .Dbody .details{
+        font-size: 13px;
+    }
+    .projects .description span{
+        font-size: 10px;
+    }
+    .slick-arrow{
+        height: 0;
+        width: 0;
+        opacity: 0;
+    }
+    .slick-arrow::before{
+        font-size: 0px;
+    }
+    .vertical-timeline-element-title{
+        font-size: 16px;
+    }
+    .vertical-timeline-element-subtitle{
+        font-size: 12px;
+    }
+    .vertical-timeline-element--work p{
+        font-size: 10px;
+    }
+    .activities .card ul li{
+        font-size: 13px;
+    }
+    .activities .card ul li ul li{
+        font-size: 12px;
+    }
+    .certificateSection{
+        position:relative;
+        height: 100px;
+    }
+    .certificateSection.certpic .cert1{
+        opacity: 0;
+        height: 0px;
+    }
+    .certificateSection.cert-info{
+        flex-direction: column;
+    }
+    .certificateSection.cert-info .cert1{
+        width: 100%;
+        position: absolute;
+        right: -25px;
+    }
+    .certificateSection.cert-info .cert1.cert2{
+        position: absolute;
+        top: 70px;
+    }
+    #alert-dialog-slide-description{
+        width: 247px;
+        height: 225px;
+    }
+    #alert-dialog-slide-description img{
+        width: 100%;
+        height: 100%;
+    }
+    #certificates .Dtitle h2{
+        font-size: 20px;
+    }
+    #certificates .Dtitle h4{
+        font-size: 13px;
+    }
+    #certificates .Dactions button{
+        font-size: 10px;
+    }
+    .contact{
+        padding-top: 20px;
+    }
+    .footer{
+        flex-direction: column;
+        gap:0px;
+    }
+    .footer .footerNav{
+        display: flex;
+    }
+    .footer .footerNav span{
+        font-size: 9px;
+    }
+}
