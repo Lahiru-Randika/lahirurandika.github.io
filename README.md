@@ -16,4 +16,6 @@ Welcome to my portfolio website! This project showcases my skills, experience, a
 - **Frontend**: HTML, CSS, JavaScript, React
 - **Development Tool**: [Vite](https://vitejs.dev/)
 - **Hosting**: GitHub Pages
-
+   
+## 📧 Contact
+If you'd like to get in touch, feel free to reach out via lahiru.21@cse.mrt.ac.lk or connect with me on <a href="https://www.linkedin.com/in/lahiru-randika-m/">LinkedIn</a>.
