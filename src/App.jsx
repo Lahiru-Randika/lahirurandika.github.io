@@ -193,7 +193,7 @@ function App() {
                 </p>
                 <div className="actions topic">
                   <a href="#cont"><Button>Contact Me<span className="icon"><FaPhone/></span></Button></a>
-                  <a href="Lahiru-Randika-CV.pdf" download="Lahiru-Randika-CV.pdf"><Button>Download Cv<span className="icon"><FaCloudDownloadAlt/></span></Button></a>
+                  <a href="Lahiru-Randika-CV-New.pdf" download="Lahiru-Randika-CV.pdf"><Button>Download Cv<span className="icon"><FaCloudDownloadAlt/></span></Button></a>
                 </div>
               </div>
             </div>
