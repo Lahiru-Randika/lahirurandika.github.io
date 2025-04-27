@@ -176,7 +176,7 @@ function App() {
                     <span className="symbols"><IoPersonOutline/></span>
                     <h3 className="line-1 anim-typewriter topic">Lahiru Randika</h3>
                   </div>
-                  <h4>Computer Science Engineering(UG)</h4>
+                  <h4>Computer Science Engineering(Ug)</h4>
                 </h2>
                 <p>A dedicated and highly motivated
                       undergraduate student who is interested in the possibilities
