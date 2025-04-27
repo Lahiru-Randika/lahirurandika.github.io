@@ -14,8 +14,12 @@ html{
 ::-webkit-scrollbar-thumb{
     background-color: rgb(119, 136, 153);
 }
+a{
+    font-style: none;
+}
 .page{
     background-image: url("./assets/background.svg");
+    /* background-image: url("./assets/bg.svg"); */
     background-position: center;
     background-repeat: no-repeat;
     background-size: cover;
@@ -24,12 +28,14 @@ html{
     padding-left: 20px;
     font-family: "Poppins", sans-serif;
 }
+
+/* --------------------------------- Header ---------------------------------  */
 .header{
     justify-content: space-between;
     padding: 20px;
     color:#ededed;
     gap:150px;
-    position: relative;
+    position:relative;
 }
 .header:hover{
     cursor: pointer;
@@ -43,6 +49,12 @@ html{
     color: transparent;
     animation: floatText 3s ease-in-out infinite alternate;
     transform: perspective(1000px) rotateY(20deg);
+}
+.whoami{
+    flex-direction: column;
+}
+.whoami h4{
+    font-size: 16px;
 }
 @keyframes floatText {
     from {
@@ -60,28 +72,37 @@ html{
 .header .navigate .navigate-word{
     text-decoration: none;
     color:#ededed;
+    border-bottom: 1.5px solid transparent;
+    border-radius: 10px;
+    padding-bottom: 5px;
 }
 .header .navigate .navigate-word:hover{
     color:aqua;
+    border-bottom: 1.5px solid rgba(0, 255, 255, 0.452);
 }
 .header .navigate span{
-    padding-left: 10px;
+    padding-left: 6px;
+    padding-right: 6px;
 }
 .header .navigate-symbol {
     display: none;
 }
-
 .body{
     padding:20px;
     padding-top: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+    border-top-left-radius: 50px;
+    border-top-right-radius: 50px;
 }
 .topic{
     color:aqua;
     font-family: "Montserrat Alternates", sans-serif;
     font-weight: 800;
     font-size: 40px;
-    margin-top: 10px;
+    margin-top: 20px;
 }
+
+/* --------------------------------- Info ---------------------------------  */
 .body .info{
     font-size: 14px;
 }
@@ -111,15 +132,80 @@ html{
     color: aqua;
     transform: perspective(1000px) rotateX(0deg);
 }
+.line-1{
+    position: relative;
+    top: 24px;
+    width: 9em;
+    margin: 0 auto;
+    border-right: 2px solid rgba(255,255,255,.75);
+    text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    transform: translateY(-50%);    
+}
+.anim-typewriter{
+  animation: typewriter 4s steps(40) 1s 1 normal both,blinkTextCursor 500ms steps(44) infinite normal;
+}
+@keyframes typewriter{
+  from{
+    width: 0;
+  }to{
+    width: 9em;
+  }
+}
+@keyframes blinkTextCursor{
+  from{
+    border-right-color: rgba(255,255,255,.75);
+  }to{
+    border-right-color: transparent;
+  }
+}
 .body .img{
-    height: 350px;
-    width: 350px;
+    height: 300px;
+    width: 300px;
     margin-left: 60px;
+    border: 1px solid black;
+    border-bottom: 15px solid rgba(0, 255, 255, 0.534);
+    border-right: 15px solid rgba(0, 255, 255, 0.534);
+    rotate: 45deg;
+    overflow:hidden;
+    border-radius: 20px;
+    border-bottom-right-radius: 25%;
+    box-shadow: 0 8px 32px 0 rgba(20, 165, 163, 0.571);
+    background-color: #302d2d36;
+    animation: imagepulse 5s ease-in-out infinite;
+}
+@keyframes imagepulse {
+    0%, 100% {
+        scale: calc(1);
+        border-bottom: 15px solid rgba(0, 255, 255, 0.534);
+        border-right: 15px solid rgba(0, 255, 255, 0.534);
+        opacity:0.9;
+    }
+    50% {
+        scale: calc(1.05);
+        border-bottom: 15px solid rgba(0, 255, 255, 0.8);
+        border-right: 15px solid rgba(0, 255, 255, 0.8);
+        opacity:1;
+    }
 }
 .body .img img{
-    height: 100%;
-    width: 100%;
+    height: 110%;
+    width: 110%;
+    rotate: -45deg;
+    opacity:0.9;
 }
+.body .img:hover{
+    scale: calc(1.05);
+    border-bottom: 15px solid rgba(0, 255, 255, 0.68);
+    border-right: 15px solid rgba(0, 255, 255, 0.68);
+}
+.body .img img:hover{
+    opacity:1;
+    cursor: pointer;
+}
+
+/* --------------------------------- Education ---------------------------------  */
 .education{
     margin-top: 50px;
 }
@@ -248,6 +334,11 @@ html{
     color: black;
     font-weight: 600;
 }
+#Alresults .Dbody ul {
+    padding: 0;
+    margin: 0;
+    list-style-type: none;
+}
 #Alresults .Dbody ul li.AlPopup{
     display: flex;
     align-items: center;
@@ -298,12 +389,13 @@ html{
     position:relative;
     width: 100%;
     height: 100%;
-    border:2px solid #00abf0;
+    border:1.5px solid #00abf0;
     border-radius: 13px;
     font-weight: 600;
     z-index: 1;
     color: rgb(2, 2, 110);
     background-color: rgba(0, 255, 255, 0.47);
+    font-family: "Montserrat Alternates", sans-serif;
 }
 #Alresults .Dactions button::before{
     content:'';
@@ -322,16 +414,20 @@ html{
     width: 100%;
     opacity:1;
 }
+/* --------------------------------- Skills ---------------------------------  */
 .skills{
     margin-top: 50px;
     color:black;
     background: rgba(255, 255, 255, 0.4);
     border-radius: 16px;
     backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(20, 165, 163, 0.571);
     border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 20px;
     height: auto;
+}
+.skills h2{
+    margin-top: 40px;
 }
 .skills .icon{
     margin-right: 10px;
@@ -349,7 +445,7 @@ html{
     cursor: pointer;
 }
 .skills .cards .div:hover{
-    background-color: rgba(255, 255, 255, 0.11);
+    background-color: rgba(255, 255, 255, 0.15);
     scale:calc(1.09);
     transition: all 0.3s ease-in-out;
 }
@@ -377,10 +473,11 @@ html{
     height: 5px;
     width: 80%;
     background: linear-gradient(45deg, #65cb11, #b8cb11, #fc9025);
+    /* background: linear-gradient(45deg, rgba(89, 0, 255, 0.824) , rgb(5, 107, 179),aqua); */
     background-size: 300% 300%;
     border-radius: 10px;
     position: absolute;
-    top: 2px;
+    top: 1px;
     left: 0;
     animation: skillSection 5s ease-in-out infinite;
 }
@@ -401,8 +498,10 @@ html{
         background-position: 0% 50%;
     }
 }
+
+/* --------------------------------- Projects ---------------------------------  */
 .projects{
-    margin-top: 50px;
+    margin-top: 100px;
 }
 .projects p{
     font-size: 13px;
@@ -442,6 +541,10 @@ html{
     white-space: normal; 
     word-wrap: break-word;
     max-height: 100%; 
+    font-size: 14px;
+}
+.projects .slick-slider .sliderSet .description span a button{
+    margin-top: 15px;
 }
 .slick-arrow{
     background-color: rgba(0, 255, 255, 0.963);
@@ -482,9 +585,15 @@ html{
 .projects .OpentheProject:hover{
     border-color: rgb(0, 255, 255);
 }
+
+/* --------------------------------- Experience ---------------------------------  */
 .experience,.activities,.contact{
     margin-top: 60px;
 }
+.experience{
+    margin-top: 80px;
+}
+/* --------------------------------- Activities and Certifications ---------------------------------  */
 .activities{
     padding:20px;
     height: 450px;
@@ -494,56 +603,9 @@ html{
     background: rgba(255, 255, 255, 0.4);
     border-radius: 16px;
     backdrop-filter: blur(10px);
-    box-shadow: 0 8px 32px 0 rgba(31, 38, 135, 0.37);
+    box-shadow: 0 8px 32px 0 rgba(31, 123, 135, 0.685);
     border: 1px solid rgba(255, 255, 255, 0.18);
     padding: 20px;
-}
-.activities .certificateSection{
-    padding: 20px;
-    padding-left: 50px;
-    gap:50px;
-    padding-bottom: 0px;
-}
-.activities .certificateSection .cert1{
-    height: 250px;
-    width: 300px;
-}
-
-.activities .certificateSection .cert1 button{
-    text-transform: capitalize;
-    color: black;
-    border: 1px solid black;
-    border-radius: 12px;
-    font-size: 12px;
-    position: relative;
-    z-index: 1;
-    transition: 0.5s;
-}
-.activities .certificateSection .cert1 button::before{
-    content:"";
-    width: 0%;
-    height: 100%;
-    background-color: aqua;
-    border-radius: 12px;
-    position: absolute;
-    top:0;
-    left:0;
-    z-index: -1;
-    transition: 0.5s;
-}
-.activities .certificateSection .cert1 button:hover::before{
-    width: 100%;
-}
-.activities .certificateSection .cert1 img{
-    height: 100%;
-    width: 100%;
-}
-.activities .certificateSection.cert-info .cert1{
-    height: 50px;
-    width: 300px;
-    padding: 0px;
-    margin: 0px;
-    padding-left: 20px;
 }
 .activities .actAndCet{
     flex-direction: column;
@@ -602,47 +664,102 @@ html{
     font-weight: 500;
     transition: color 0.3s ease;
 }
-#certificates .Dtitle{
+.containerSwiper{
+    padding-left: 20px;
+}
+.containerSwiper .mySwiper img{
+    height: 100%;
+    width: 80%;
+}
+.mySwiper .Dtitle{
     padding-top: 20px;
     flex-direction: column;
     font-family: "Montserrat Alternates", sans-serif;
 }
-#certificates .Dtitle h2{
+.mySwiper .Dtitle h2{
     font-weight: 600;
 }
-#certificates .Dtitle h4{
-    font-size: 20px;
+.mySwiper .Dtitle h4{
+    font-size: 18px;
 }
-#certificates .Dactions{
+.mySwiper .Dactions{
     justify-content: space-between;
     margin: 0px 30px;
 }
-#certificates a button{
+.certificateSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+.mySwiper {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    position: relative;
+    left: 20px;
+    overflow: visible;
+    mask-image: linear-gradient(to right, transparent 0%, black 20%, black 80%, transparent 100%);
+    -webkit-mask-image: linear-gradient(to right, transparent 0%, black 15%, black 80%, transparent 100%);
+}
+.mySwiper .certificateSection{
+    overflow: inherit;
+}
+.swiper-slide {
+    transition: transform 0.3s ease;
+}
+.swiper-button-prev {
+    opacity: 0;
+}
+.swiper-button-next {
+    color: #ffffff;
+    background-color: black; 
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    right: 30px;
+}
+.swiper-button-next:hover {
+    color: black;
+    background-color: white; 
+}
+.cert1 {
+    text-align: center;
+    padding: 10px;
+}
+.activities .card{
+    overflow: hidden;
+}
+.mySwiper a button{
     color:#00ffea;
     background-color: rgba(0, 0, 0, 0.689);
     border-radius: 20px;
-    padding: 10px
+    padding: 10px;
+    font-size: 10px;
 }
-#certificates a button:hover{
+.mySwiper a button:hover{
     color:rgba(0, 0, 0,1);
     background-color: #00ffea;
 }
-#certificates button{
-    color:#ff7b00;
-    background-color: rgba(0, 0, 0, 0.689);
-    border-radius: 20px;
+.activities .slick-slider .sliderSet .imagediv {
+    width: 650px;
+    height: 330px;
+    border-radius: 0px;
 }
-#certificates button:hover{
-    color:black;
-    background-color: #ff7b00;
-    border-radius: 20px;
+.activities .slick-slider .sliderSet .imagediv .certificateimage{
+    width: 100%;
+    height: 100%;
+    border-radius: 0px;
 }
-.certinDialog{
-    height: 450px;
-    width: 600px;
+.certificateSection {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
 }
+/* --------------------------------- Contact Me ---------------------------------  */
 .contact{
-    margin-top: 120px;
+    margin-top: 150px;
     margin-bottom: 30px;
 }
 .contact .icon{
@@ -676,6 +793,8 @@ html{
     transition: all 1s ease-in-out;
     cursor: pointer;
 }
+
+/* --------------------------------- Footer ---------------------------------  */
 .footer{
     padding:0px;
     margin: 0px;
@@ -728,6 +847,9 @@ html{
     transform: translateY(0);
 }
 
+
+/* --------------------------------- Responsive Codes ---------------------------------  */
+
 @media (max-width: 992px) {
     .container{
         font-size: 12px;
@@ -745,12 +867,13 @@ html{
         position: fixed;
         top: 0;
         right: 0;
-        background: rgba(0, 0, 0, 0.78);
+        background: rgba(0, 0, 0, 0.817);
         width: 100%;
         height: 100%;
         z-index: 1000;
         padding-top: 60px;
         text-align: center;
+        font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
     }
     .header.active .navigate .navigate-word {
         display: block;
@@ -765,6 +888,11 @@ html{
         margin: 0 auto;
         padding:0;
     }
+    .body .img{
+        margin-top: 50px;
+        height: 280px;
+        width: 280px;
+    }
     .topic{
         font-size: 35px;
     }
@@ -777,6 +905,15 @@ html{
     }
     .body .info .full-screen-para {
         width: 100%;
+    }
+    .info .actions a button{
+        position: relative;
+        right:30px;
+        margin: 10px 0px 30px 0px;
+    }
+    .body .row .img{
+        position: relative;
+        right:30px;
     }
     .col-md-7 {
         flex: 0 0 85%;
@@ -805,6 +942,12 @@ html{
     }
     .activities .actAndCet button{
         font-size: 10px;
+    }
+    .Dtitle h2{
+        font-size: 18px;
+    }
+    .Dtitle h4{
+        font-size: 12px;
     }
     .contact{
         margin-top: 210px;
@@ -846,9 +989,32 @@ html{
     .body {
         padding: 10px;
     }
+    .line-1{
+        position: relative;
+        top: 22px;   
+    }
+    .info .actions a button{
+        width: 60%;
+        position: relative;
+        right:30px;
+    }
+    .body .row .img{
+        width: 70%;
+        position: relative;
+        right:30px;
+        width: 230px;
+        height: 230px;
+    }
+    .body .row .img img{
+        width: 110%;
+    }
     .skills .cards {
         flex-direction: column;
         width: 420px;
+    }
+    .skill-bar-back{
+        width: 100%;
+        height: 7px;
     }
     .projects .slick-slider .sliderSet {
         flex-direction: column;
@@ -879,6 +1045,16 @@ html{
     .activities ul.list li {
         font-size: 18px;
     }
+    .Dtitle h2{
+        font-weight: 600;
+    }
+    .Dtitle h4{
+        font-size: 17px;
+    }
+    .swiper-button-next {
+        height: 35px;
+        width: 35px;
+    }
     .contact{
         margin-top: 350px;
     }
@@ -903,13 +1079,56 @@ html{
         font-size: 12px;
     }
 }
-@media (max-width: 576px){
+@media (max-width: 522px){
+    .page{
+        padding-left: 0px;
+    }
+    .info .actions a button{
+        width: 60%;
+        font-size: 12px;
+        position: relative;
+        right:30px;
+    }
+    .body .row .img{
+        width: 70%;
+        position: relative;
+        right:30px;
+        width: 220px;
+        height: 220px;
+    }
     .skills .cards {
         flex-direction: column;
         width: auto;
     }
+    .Dtitle h2{
+        font-weight: 600;
+        font-size: 17px;
+    }
+    .Dtitle h4{
+        font-size: 14px;
+    }
     .footer{
         flex-direction: column;
+        gap:0px;
+    }
+    .certificateSection.certpic .cert1{
+        padding-left: 0px;
+        margin-left: 0px;
+        height: 126px;
+        position:relative;
+    }
+    .certificateSection.cert-info {
+        display:flex;
+        align-items: center;
+        justify-content: center;
+        flex-direction: column;
+    }
+    .certificateSection.cert-info .cert1 button{
+        font-size: 13px;
+        margin: 0;
+        width: 80%;
+        position: absolute;
+        right:35px;
         gap:0px;
     }
     .footer .footerNav{
@@ -919,7 +1138,13 @@ html{
         font-size: 12px;
     }
 }
-@media (max-width: 360px){
+@media (max-width: 460px){
+    .page{
+        padding-left: 0px;
+    }
+    button{
+        font-style: none;
+    }
     .topic{
         font-size: 25px;
     }
@@ -929,10 +1154,16 @@ html{
         position: relative;
         right:30px;
     }
+    .line-1{
+        position: relative;
+        top: 18px;    
+    }
     .body .row .img{
         width: 85%;
         position: relative;
         right:30px;
+        height: 210px;
+        width: 210px;
     }
     .education .para{
         font-size: 12px;
@@ -981,43 +1212,60 @@ html{
     }
     .certificateSection{
         position:relative;
-        height: 100px;
+        height: 110px;
+    }
+    .certificateSection.certpic {
+        flex-direction: column;
+        height: auto;
+        padding: 1; 
     }
     .certificateSection.certpic .cert1{
-        opacity: 0;
-        height: 0px;
+        max-width: 230px;
+        min-width: 150px;
+        height: 150px;
     }
     .certificateSection.cert-info{
         flex-direction: column;
+
     }
-    .certificateSection.cert-info .cert1{
-        width: 100%;
-        position: absolute;
-        right: -25px;
-    }
-    .certificateSection.cert-info .cert1.cert2{
-        position: absolute;
-        top: 70px;
+    .certificateSection.cert-info .cert1 button{
+        font-size: 12px;
+        padding: 0;
     }
     #alert-dialog-slide-description{
-        width: 247px;
+        width: 250px;
         height: 225px;
+        margin-left: 10px;
     }
     #alert-dialog-slide-description img{
         width: 100%;
         height: 100%;
     }
-    #certificates .Dtitle h2{
+    .Dtitle h2{
         font-size: 20px;
     }
-    #certificates .Dtitle h4{
+    .Dtitle h4{
         font-size: 13px;
     }
-    #certificates .Dactions button{
+    .Dactions button{
         font-size: 10px;
     }
+    .Dtitle2{
+        position: relative;
+        top: 40px;
+        left:60px;
+    }
+    .Dtitle h2{
+        font-weight: 600;
+    }
+    .Dtitle h4{
+        font-size: 17px;
+    }
+    .mySwiper img{
+        visibility: hidden;
+    }
     .contact{
-        padding-top: 20px;
+        padding-top: 90px;
     }
     .footer{
         flex-direction: column;
@@ -1028,5 +1276,47 @@ html{
     }
     .footer .footerNav span{
         font-size: 9px;
+    }
+}
+@media (max-width: 400px){
+    .line-1{
+        position: relative;
+        top: 19px;
+        width: 5em;   
+    }
+    .full-screen-para .actions{
+        width: 100%;
+    }
+    .certificateSection.certpic {
+        padding: 0; 
+    }
+    .certificateSection.certpic .cert1{
+        max-width: 250px;
+        min-width: 150px;
+        height: 150px;
+    }
+    .experience{
+        margin-top: 90px;
+    }
+    .Dtitle2{
+        position: relative;
+        left:70px;
+        scale: calc(1.2);
+    }
+    .Dtitle2 h2{
+        font-size: 60px;
+    }
+    .Dtitle2 a button{
+        position: relative;
+        left:16px;
+    }
+    .Dtitle h2{
+        font-size: 15px;
+    }
+    .Dtitle h4{
+        font-size: 12px;
+    }
+    .contact{
+        padding-top: 0px;
     }
 }

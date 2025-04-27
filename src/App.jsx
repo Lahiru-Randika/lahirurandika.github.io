@@ -1,6 +1,6 @@
 import React, { useState,useEffect } from "react";
 import "bootstrap/dist/css/bootstrap.min.css";
-import img1 from "./assets/react.svg"
+import img1 from "./assets/mypic.png"
 import Button from "@mui/material/Button"
 import img2 from "./assets/unilogo.png"
 import img3 from "./assets/scllogo.jpg"
@@ -13,6 +13,7 @@ import WorkIcon from '@mui/icons-material/Work';
 import StarIcon from '@mui/icons-material/Star';
 import img4 from "./assets/certificate01.png"
 import img5 from "./assets/certificate02.png"
+import img9 from "./assets/certificate03.png";
 import Dialog from '@mui/material/Dialog';
 import DialogActions from '@mui/material/DialogActions';
 import DialogContent from '@mui/material/DialogContent';
@@ -28,6 +29,10 @@ import { styled } from '@mui/material/styles';
 import Rating from '@mui/material/Rating';
 import FavoriteIcon from '@mui/icons-material/Favorite';
 import FavoriteBorderIcon from '@mui/icons-material/FavoriteBorder';
+import { Swiper, SwiperSlide } from 'swiper/react';
+import 'swiper/swiper-bundle.css';
+import { Navigation, Autoplay, EffectFade } from 'swiper/modules';
+
 
 import { IoPersonOutline } from "react-icons/io5";
 import { FaPhone } from "react-icons/fa";
@@ -65,22 +70,9 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 function App() {
 
+  // for certifications and actions cards
   const [openCert,setOpenCert] = useState(true)
   const [openAct,setOpenAct] = useState(false)
-
-  var settings = {
-    dots: true,
-    infinite: true,
-    speed: 500,
-    slidesToShow: 1,
-    slidesToScroll: 1,
-    autoplay: true,
-    arrows: true,
-  };
-  
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: "smooth" });
-  };
 
   const openCertificate =()=>{
     setOpenCert(true)
@@ -91,23 +83,31 @@ function App() {
     setOpenAct(true)
   }
 
+  // for Sliders in projects
+  var settings = {
+    dots: true,
+    infinite: true,
+    speed: 500,
+    slidesToShow: 1,
+    slidesToScroll: 1,
+    autoplay: true,
+    arrows: true,
+  };
+  
+  // Scrolling to top button
+  const scrollToTop = () => {
+    window.scrollTo({ top: 0, behavior: "smooth" });
+  };
+
+  // for Als and Ols dialog boxes
   const [openScl01, setOpenScl01] = useState(false);
   const [openScl02, setOpenScl02] = useState(false);
-
-  const [open01, setOpen01] = useState(false);
-  const [open02, setOpen02] = useState(false);
 
   const handleClickOpenScl01 = () => {
     setOpenScl01(true);
   };
   const handleClickOpenScl02 = () => {
     setOpenScl02(true);
-  };
-  const handleClickOpen01 = () => {
-    setOpen01(true);
-  };
-  const handleClickOpen02 = () => {
-    setOpen02(true);
   };
 
   const handleCloseScl02 = () => {
@@ -116,33 +116,26 @@ function App() {
   const handleCloseScl01 = () => {
     setOpenScl01(false);
   };
-  const handleClose01 = () => {
-    setOpen01(false);
-  };
-  const handleClose02 = () => {
-    setOpen02(false);
-  };
 
+  //for button coloring line
   const StyledRating = styled(Rating)({
     '& .MuiRating-iconFilled': {
       color: "rgba(0,0,0,0.5)",
     }
   });
 
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach((entry)=>{
-      console.log(entry);
-      if (entry.isIntersecting){
-        entry.target.classList.add("show");
-      }else{
-        entry.target.classList.remove("show");
-      }
-    })
-  })
-
- 
-  const hiddenElements = document.querySelectorAll('.hidden')
-  hiddenElements.forEach((el)=>observer.observe(el))
+  // for delayed revealing effect
+  useEffect(() => {
+    ScrollReveal().reveal('.slide-in-bottom', {
+      origin: 'bottom',
+      distance: '50px',
+      duration: 1000,
+      delay: 200,
+      easing: 'ease-in-out',
+      reset: false
+    });
+  }, []);
+  
 
   const [isNavVisible, setNavVisible] = useState(false);
 
@@ -174,10 +167,17 @@ function App() {
         
         <div className="body justify-conteny-center">
           <div className="row d-flex align-items-center justify-content-center">
+            
             {/*-------------------------------- Introduction -------------------------------- */}
             <div id="wai" className="col-md-7 info full-screen-para">
               <div className="widthChange">
-                <h2  className="pb-4 d-flex align-items-center justify-content-center topic hidden"><span className="symbols"><IoPersonOutline/></span>Who am I</h2>
+                <h2  className=" whoami pb-4 d-flex align-items-center justify-content-center topic">
+                  <div className="d-flex align-items-center">
+                    <span className="symbols"><IoPersonOutline/></span>
+                    <h3 className="line-1 anim-typewriter topic">Lahiru Randika</h3>
+                  </div>
+                  <h4>Computer Science Engineering(UG)</h4>
+                </h2>
                 <p>A dedicated and highly motivated
                       undergraduate student who is interested in the possibilities
                       of using my technical skills and passion for creativity in
@@ -204,8 +204,8 @@ function App() {
 
 
           {/*-------------------------------- Education -------------------------------- */}
-          <div id="educa" className="education projects">
-            <h2 className="pb-4 d-flex align-items-center justify-content-center topic hidden"><span className="symbols"><IoSchoolOutline/></span>Education</h2>
+          <div id="educa" className="education projects slide-in-bottom">
+            <h2 className="pb-4 d-flex align-items-center justify-content-center topic"><span className="symbols"><IoSchoolOutline/></span>Education</h2>
             <p className="para">My educational journey began at Wp/Ke Jayakody Maha Vidyalaya, where I excelled in my studies and passed the grade five scholarship exam. Following this, 
               Royal College became my alma mater, where I developed a strong foundation in academics and nurtured my passion for technology. The guidance I received there helped 
               me achieve outstanding results in both my O-Levels and A-Levels. Building on this success, 
@@ -336,9 +336,6 @@ function App() {
                                   <span>ICT</span>
                                   <span>A</span>
                                 </li>
-                                {/* <li className="OlPopup">
-                                  <span>-------------------------</span>
-                                </li> */}
                               </ul>
                             </div>
                           </div>
@@ -356,8 +353,8 @@ function App() {
 
 
           {/*-------------------------------- Skills -------------------------------- */}
-          <div id="ski" className="skills projects">
-            <h2 className="pb-4 d-flex align-items-center justify-content-center topic hidden"><span className="symbols"><FaRegKeyboard/></span>Skills</h2>
+          <div id="ski" className="skills projects slide-in-bottom">
+            <h2 className="pb-4 d-flex align-items-center justify-content-center topic"><span className="symbols"><FaRegKeyboard/></span>Skills</h2>
             <p>I have gained a diverse set of skills that empower me. From coding, software development to cybersecurity and problem-solving, each skill has been carefully cultivated through rigorous study. 
               These competencies form the foundation of my ability to contribute effectively in any technical environment, enabling me to adapt and excel in various projects and scenarios.</p>
             <div className="cards">
@@ -489,8 +486,8 @@ function App() {
 
 
           {/*-------------------------------- Projects -------------------------------- */}
-          <div id="proj" className="projects">
-            <h2 className="pb-4 d-flex align-items-center justify-content-center topic hidden"><span className="symbols"><PiProjectorScreenChart/></span>Projects</h2>
+          <div id="proj" className="projects ">
+            <h2 className="pb-4 d-flex align-items-center justify-content-center topic slide-in-bottom"><span className="symbols"><PiProjectorScreenChart/></span>Projects</h2>
             <p>In this section, you'll find a collection of my most impactful projects, each reflecting my dedication, and hard-working to problem-solving. 
               These projects highlight my ability to tackle complex challenges and deliver solutions that make a difference. 
               Dive in to see the work that defines my journey and demonstrates my commitment to excellence.</p>
@@ -505,7 +502,7 @@ function App() {
                   from multiple retailers all in one place. With Shopily, you can easily find and purchase your desired goods while also discovering the exact locations of 
                   products within participating stores. This seamless experience not only saves time but also ensures that you can quickly locate and obtain the items you need.<br/>
                   (Still under constuctions..)<br/>
-                  <a href="https://github.com/Lahiru-Randika/Shopily"><Button className="OpentheProject">Open the project in GitHub</Button></a>
+                    <a href="https://github.com/Lahiru-Randika/Shopily"><Button className="OpentheProject">Open the project in GitHub</Button></a>
                   </span>
                 </div>
               </div>
@@ -540,7 +537,7 @@ function App() {
 
           {/*-------------------------------- Experience -------------------------------- */}
           <div id="exp" className="projects experience">
-            <h2 className="pb-4 d-flex align-items-center justify-content-center topic hidden"><span className="symbols"><GrWorkshop/></span>Experience</h2>
+            <h2 className="pb-4 d-flex align-items-center justify-content-center topic slide-in-bottom"><span className="symbols"><GrWorkshop/></span>Experience</h2>
             <p><b>While I don't have direct industry-related experience, </b>
               I have gained valuable insights and skills from various job experiences. These roles have significantly contributed 
               to my personal and professional growth, providing me with a solid foundation in work ethics, teamwork, and problem-solving. 
@@ -600,8 +597,8 @@ function App() {
 
 
           {/*-------------------------------- Certificates & Actions -------------------------------- */}
-          <div id="act" className="projects activities">
-            <h2 className="pb-4 d-flex align-items-center justify-content-center topic hidden"><span className="symbols"><FaCertificate/></span>Activities & Certifications</h2>
+          <div id="act" className="projects activities slide-in-bottom">
+            <h2 className="pb-4 d-flex align-items-center justify-content-center topic"><span className="symbols"><FaCertificate/></span>Activities & Certifications</h2>
             <p>Explore my diverse certifications, and activities where each achievement reflects my commitment to continuous learning and growth, showcasing the skills and knowledge 
               I've gained to excel in the cybersecurity field. Some of these activities define who I am, reflecting my journey,and passions.
             </p>
@@ -635,60 +632,63 @@ function App() {
                   </div>
                   :
                   <div>
-                    <div className="certificateSection certpic d-flex">
-                      <div className="cert1">
-                        <img src={img4}/>
-                      </div>
-                      <div className="cert1">
-                        <img src={img5}/>
-                      </div>
-                    </div>
-                    <div className="cert-info certificateSection d-flex">
-                      <div className="cert1">
-                        <Button onClick={handleClickOpen01}><span>Click Me to See More Info</span></Button>
-                        <Dialog
-                          open={open01}
-                          TransitionComponent={Transition}
-                          onClose={handleClose01}
-                          id="certificates"
+                    <div className="container containerSwiper">
+                      <Swiper 
+                        slidesPerView={1.3}
+                        centeredSlides={true}
+                        spaceBetween={-20}
+                        navigation = {true}
+                        loop = {true}
+                        autoplay={{
+                          delay: 2500,
+                          disableOnInteraction: false,
+                        }}
+                        direction="horizontal"
+                        rtl={true}
+                        modules = {[Navigation, Autoplay, EffectFade]}
+                        className="mySwiper"
                         >
-                          <DialogTitle className="Dtitle d-flex align-items-center justify-content-center">
-                            <h2>Career Essentials in Cybersecurity</h2>
-                            <h4>by Microsoft and LinkedIn</h4>
-                          </DialogTitle>
-                          <DialogContent>
-                            <DialogContentText id="alert-dialog-slide-description">
-                              <img className="certinDialog" src={img4}/>
-                            </DialogContentText>
-                          </DialogContent>
-                          <DialogActions className="Dactions d-flex align-items-center">
-                            <a href="https://www.linkedin.com/learning/certificates/c52650e03eb22bcb10f0c370ad184b0957a2f55308002a655dfe32d1e402fd94"><Button onClick={handleClose01}><MdOutlineAdsClick/>Show Credentials</Button></a>
-                            <Button onClick={handleClose01}><RxCrossCircled/>Exit</Button>
-                          </DialogActions>
-                        </Dialog>
-                      </div>
-                      <div className="cert1 cert2">
-                        <Button onClick={handleClickOpen02}><span>Click Me to See More Info</span></Button>
-                        <Dialog
-                          open={open02}
-                          TransitionComponent={Transition}
-                          onClose={handleClose02}
-                        >
-                          <DialogTitle className="Dtitle d-flex align-items-center justify-content-center">
-                            <h2>Cyber Security Foundation</h2>
-                            <h4>by LinkedIn</h4>
-                          </DialogTitle>
-                          <DialogContent>
-                            <DialogContentText id="alert-dialog-slide-description">
-                              <img className="certinDialog" src={img5}/>
-                            </DialogContentText>
-                          </DialogContent>
-                          <DialogActions  className="Dactions d-flex align-items-center">
-                            <a href="https://www.linkedin.com/learning/certificates/d95cabd1d2b08a0a8bf9362a7db76598ddc9ee624f6f36b70935f8ff4deebc8b?trk=share_certificate"><Button onClick={handleClose02}><MdOutlineAdsClick/>Show Credentials</Button></a>
-                            <Button onClick={handleClose02}><RxCrossCircled/>Exit</Button>
-                          </DialogActions>
-                        </Dialog>
-                      </div>
+                        <SwiperSlide>
+                            <div className="cert1 d-flex align-items-center justify-content-center">
+                              <div className="Dtitle">
+                                <h2>Career Essentials in Cybersecurity</h2>
+                                <h4>by Microsoft and LinkedIn</h4>
+                                <a href="https://www.linkedin.com/learning/certificates/c52650e03eb22bcb10f0c370ad184b0957a2f55308002a655dfe32d1e402fd94"><Button className="OpentheProject"><MdOutlineAdsClick/>Show Credentials</Button></a>
+                              </div>
+                              <div id="alert-dialog-slide-description">
+                                <img className="certinDialog" src={img4}/>
+                              </div>
+                            </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                          <div className="cert-info certificateSection d-flex">
+                            <div className="cert1 d-flex align-items-center justify-content-center">
+                              <div className="Dtitle Dtitle2">
+                                <h2>Cyber Security Foundation</h2>
+                                <h4>by LinkedIn</h4>
+                                <a href="https://www.linkedin.com/learning/certificates/d95cabd1d2b08a0a8bf9362a7db76598ddc9ee624f6f36b70935f8ff4deebc8b?trk=share_certificate"><Button className="OpentheProject"><MdOutlineAdsClick/>Show Credentials</Button></a>
+                              </div>
+                              <div id="alert-dialog-slide-description">
+                                <img className="certinDialog" src={img5}/>
+                              </div>
+                            </div>
+                          </div>
+                        </SwiperSlide>
+                        <SwiperSlide>
+                          <div className="cert-info certificateSection d-flex">
+                            <div className="cert1 d-flex align-items-center justify-content-center">
+                              <div className="Dtitle Dtitle2">
+                                <h2>JavaScript for Beginners</h2>
+                                <h4>by Simplilearn</h4>
+                                <a href="https://simpli-web.app.link/e/pTM4cjIdCMb"><Button className="OpentheProject"><MdOutlineAdsClick/>Show  Credentials</Button></a>
+                              </div>
+                              <div id="alert-dialog-slide-description">
+                                <img className="certinDialog" src={img9}/>
+                              </div>
+                            </div>
+                          </div>
+                        </SwiperSlide>
+                      </Swiper>
                     </div>
                   </div>
                 }
@@ -698,8 +698,8 @@ function App() {
 
 
           {/*-------------------------------- Contact Me -------------------------------- */}
-          <div id="cont" className=" projects contact">
-            <h2 className="pb-4 d-flex align-items-center justify-content-center topic hidden"><span className="symbols"><FaPhoneAlt/></span>Contact Me</h2>
+          <div id="cont" className=" projects contact slide-in-bottom">
+            <h2 className="pb-4 d-flex align-items-center justify-content-center topic"><span className="symbols"><FaPhoneAlt/></span>Contact Me</h2>
             <p>I am always open to connecting and discussing opportunities. For any inquiries or collaborations, you can contact me via email
                or connect with me on LinkedIn. I look forward to hearing from you!<br/>
                If you have any specific details or adjustments, just let me know!
@@ -712,6 +712,10 @@ function App() {
               <div className="contact-info-in d-flex align-items-center justify-content-center">
                 <span>Nationality</span>
                 <span>Sri Lankan</span>
+              </div>
+              <div className="contact-info-in d-flex align-items-center justify-content-center">
+                <span>Mobile</span>
+                <span>076 6187964</span>
               </div>
               <div className=" contact-info-in links d-flex align-items-center justify-content-center">
                 <span className="email"><MdMarkEmailRead className="icon"/>lahiru.21@cse.mrt.ac.lk</span>
